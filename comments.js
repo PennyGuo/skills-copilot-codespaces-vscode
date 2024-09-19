@@ -1,18 +1,13 @@
 // Create web server
-// The web server should listen on port 3000
-// When the server receives a request on route /comments, it should respond with the list of comments in the array
-
-const http = require('http');
-
-const comments = ["comment1", "comment2", "comment3", "comment4"];
-
-const server = http.createServer((req, res) => {
-    res.writeHead(200, {
-        'Content-Type': 'text/plain'
-    });
-    res.end(comments.join('\n'));
+// 1. Import express
+const express = require('express');
+// 2. Create express app
+const app = express();
+// 3. Add a route
+app.get('/comments', (req, res) => {
+  res.send('This is a GET request');
 });
-
-server.listen(3000, () => {
-    console.log('Server is listening on port 3000');
+// 4. Start the server
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
 });
