@@ -1,13 +1,17 @@
 // Create web server
-// 1. Import express
 const express = require('express');
-// 2. Create express app
 const app = express();
-// 3. Add a route
+const port = 3000;
+
+// Create a route for '/comments' that sends a JSON object as a response
 app.get('/comments', (req, res) => {
-  res.send('This is a GET request');
+  res.json({ comments: [{ username: 'Todd', comment: 'lolol' }] });
 });
-// 4. Start the server
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+
+// Start the server on port 3000
+app.listen(port, () => {
+  console.log(`Server started at http://localhost:${port}`);
 });
+// Run the server by executing the following command:
+// node comments.js
+// Now you can visit http://localhost:3000/comments to see the JSON object in the browser.
